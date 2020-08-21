@@ -1,0 +1,12 @@
+package com.flysaa.people;
+
+import java.util.Scanner;
+
+public class Customer extends People{
+Scanner scanner = new Scanner(System.in);
+
+System.out.println("Enter your name below: ");
+String name = scan.nextLine();
+
+System.out.prin
+}

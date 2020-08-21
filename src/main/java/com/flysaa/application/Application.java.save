@@ -1,0 +1,43 @@
+package com.flysaa.application;
+
+import java.util.Scanner;
+import com.flysaa.people.Customer;
+
+class Application{
+
+public static void  main(String[] args){
+//Scanner scan = new Scanner(System.in);
+
+for(short a = 0;a < 10; a++){
+Scanner scan = new Scanner(System.in);
+System.out.println(" <<< Welcome to SAA >>> ");
+System.out.println("\n Choose option:\n 1.Buy Tickets:\n 2.Manage Employees:\n 3.Board Flight:\n 4.Manage Customers:\n 5.Exit \n");
+short option = scan.nextShort();
+
+switch (option){
+
+case 1:
+System.out.println("\n Option 1: Buy Tickets  \n");
+break;
+
+case 2:
+System.out.println("\n Option 2: Manage Employees \n");
+break;
+
+case 3:
+System.out.println("\n Option 3: Board Flight \n");
+break;
+
+case 4:
+System.out.println("\n Option 4: Manage Customers \n");
+Customer customer = new 
+break;}
+
+if(option==5){
+break;}
+
+
+
+}
+}
+}
