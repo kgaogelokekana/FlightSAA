@@ -31,15 +31,16 @@ System.out.println("\n SEll TICKETS \n");
 
    System.out.println("Welcome to SAA reception. The place to book a flight ");
 
-    System.out.println("\n Enter your First Name:");
+    System.out.println("  " + " \n Enter Your First Name:");
+    String firstName00 = scan.nextLine();
     customer.firstName = scan.nextLine();
 
     System.out.println("Enter your Surname:");
     customer.surName = scan.nextLine();
 
-    System.out.println("Choose destination province:");
+    System.out.println("Choose destination province:" + " \n 0.Limpopo \n 1.Mpumalanga \n 2.Gauteng \n 3.FreeState \n 4.Kwazulu Natal \n 5.Eastern Cape  ");
     int number0 = scan.nextInt();
-    String province[] = new String[8];
+    String province[] = new String[9];
     province[0] = "Limpopo";
     province[1] = "Mpumalanga";
     province[2] = "Gauteng";
@@ -50,7 +51,7 @@ System.out.println("\n SEll TICKETS \n");
     province[7] = "Northan Cape";
     province[8] = "North West";
 
-    System.out.println("Choose departure Airport:");
+    System.out.println("Choose departure Airport:" + "\n 0.OR Tambo \n 1.Cape Town \n 2.King Shaka \n 3.Bram Fischer");
     int number1 = scan.nextInt();
     String airport[] =new String[4];
     airport[0] = "O.R Tambo International Airport";
@@ -58,7 +59,7 @@ System.out.println("\n SEll TICKETS \n");
     airport[2] = "King Shaka INternational AIrport";
     airport[3] = "Bram Fischer International Airport";
 
-    System.out.println("Choose landing Airport:");
+    System.out.println("Choose landing Airport:" + "\n 0.OR Tambo \n 1.Cape Town \n 2.King Shaka 3.Bram Fischer");
     int number2 = scan.nextInt();
     String landing[] = new String[4];
     landing[0] = "O.R Tambo International Airport";
@@ -67,14 +68,14 @@ System.out.println("\n SEll TICKETS \n");
     landing[3] = "Bram Fischer International Airport";
 
 
-    System.out.println("Choose flight:");
+    System.out.println("Choose flight:" + "\n 0.First Class \n 1.Economy \n 2.Private");
     int number3 = scan.nextInt();
     String flight[] = new String[3];
     flight[0] = "First Class";
     flight[1] = "Economy";
     flight[2] = "Air Private ";
 
-    System.out.println("Choose departure time:");
+    System.out.println("Choose departure time:"+ "\n 0.00h00 \n 1.06h00 \n 2.12h00 \n 3.18h00");
     int number4 = scan.nextInt();
      String time1[] = new String[4];
      time1[0] = "00h00";
@@ -82,7 +83,7 @@ System.out.println("\n SEll TICKETS \n");
      time1[2] = "12h00";
      time1[3] = "18h00";
 
-     System.out.println("Choose departure time:");
+     System.out.println("Choose departure time:" + "\n 0.06h00 \n 1.12h00 \n 2.18h00 \n 3.00h00");
       String arrivalTime[] = new String[4];
       arrivalTime[0] = "06h00";
       arrivalTime[1] = "12h00";
