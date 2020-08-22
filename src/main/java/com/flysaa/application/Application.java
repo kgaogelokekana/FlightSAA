@@ -1,6 +1,8 @@
 package com.flysaa.application;
 
 import java.util.Scanner;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import com.flysaa.person.Customer;
 import com.flysaa.person.Person;
 import com.flysaa.person.Employee;
@@ -9,6 +11,7 @@ class Application{
 
 public static void  main(String[] args){
 Scanner scan = new Scanner(System.in);
+Calendar calendar1 = new GregorianCalendar();
 Customer customer = new Customer();
 Customer customer1 = new Customer();
 
@@ -21,7 +24,7 @@ Person person1 = new Person();
 
 for(int a = 0;a < 15; a++){
 System.out.println(" <<< Welcome to the SAA Menu >>> \n ");
-System.out.println("\n Choose option:\n 1.Buy Tickets:\n 2.Manage Employees:\n 3.Board Flight:\n 4.Manage Customers:\n 5.Exit \n");
+System.out.println("\n Choose option:\n 1.Buy Tickets:\n 2.Manage Employees(Log In or Sign Up):\n 3.Board Flight:\n 4.Manage Customers:\n 5.Exit \n");
 int option = scan.nextInt();
 
 //MENU OPTION 1
@@ -33,12 +36,12 @@ System.out.println("\n SEll TICKETS \n");
 
     System.out.println("  " + " \n Enter Your First Name:");
     String firstName00 = scan.nextLine();
-    customer.firstName = scan.nextLine();
+    customer.setFirstName(scan.nextLine());
 
     System.out.println("Enter your Surname:");
-    customer.surName = scan.nextLine();
+    customer.setSurName(scan.nextLine());
 
-    System.out.println("Choose destination province:" + " \n 0.Limpopo \n 1.Mpumalanga \n 2.Gauteng \n 3.FreeState \n 4.Kwazulu Natal \n 5.Eastern Cape  ");
+    System.out.println("Choose destination province:" + " \n 0.Limpopo \n 1.Mpumalanga \n 2.Gauteng \n 3.FreeState \n 4.Kwazulu Natal \n 5.Eastern Cape \n 6.Western Cape \n 7.Northen Cape  ");
     int number0 = scan.nextInt();
     String province[] = new String[9];
     province[0] = "Limpopo";
@@ -75,15 +78,17 @@ System.out.println("\n SEll TICKETS \n");
     flight[1] = "Economy";
     flight[2] = "Air Private ";
 
-    System.out.println("Choose departure time:"+ "\n 0.00h00 \n 1.06h00 \n 2.12h00 \n 3.18h00");
-    int number4 = scan.nextInt();
-     String time1[] = new String[4];
-     time1[0] = "00h00";
-     time1[1] = "06h00";
-     time1[2] = "12h00";
-     time1[3] = "18h00";
+   System.out.println("Enter date: yyyy-mm-dd-hr-min ");
+     int year = scan.nextInt();
+     int month = scan.nextInt();
+     int day = scan.nextInt();
+     int hour = scan.nextInt();
+     int minutes = scan.nextInt();
+Calendar calendar = new GregorianCalendar(year, month, day, hour, minutes);
+   System.out.println(calendar.getTime());
 
      System.out.println("Choose departure time:" + "\n 0.06h00 \n 1.12h00 \n 2.18h00 \n 3.00h00");
+     int number4 = scan.nextInt();
       String arrivalTime[] = new String[4];
       arrivalTime[0] = "06h00";
       arrivalTime[1] = "12h00";
@@ -91,13 +96,13 @@ System.out.println("\n SEll TICKETS \n");
       arrivalTime[3] = "00h00";
 
 
-System.out.println("\n Username: "+ customer.userName);
-System.out.println("Surname: "+ customer.surName);
+System.out.println("\n Username: "+ customer.getUserName());
+System.out.println("Surname: "+ customer.getSurName());
 System.out.println("Destination Province: "+ province[number0]);
 System.out.println("Departure Airport: "+ airport[number1]);
 System.out.println("Landing Airport: "+ landing[number2]);
 System.out.println("Flight: "+ flight[number3]);
-System.out.println("Departure Time: "+ time1[number4]);
+System.out.println("Departure Date"+ calendar.getTime());
 System.out.println("Arrival time: "+ arrivalTime[number4]);
 
 
@@ -116,51 +121,51 @@ System.out.println(" \n Buy Tickets \n");
        if(manageEmployee ==1){
 
     System.out.println("Enter Username: ");
-    employee.userName = scan.nextLine();
+    employee.setUserName(scan.nextLine());
 
     System.out.println("Enter Password: ");
-    employee.password = scan.nextLine();
+    employee.setPassword(scan.nextLine());
 
-              if(employee.userName.equals(employee.userName) && employee.password.equals(employee.password)){
+              if(employee.getUserName().equals(employee.getUserName()) && employee.getPassword().equals(employee.getPassword())){
               System.out.println(employee.login());
               System.out.println(employee.bookflight());
 
-  System.out.println("\n Employee Name is: "+ employee.firstName);
-  System.out.println("Employee Surnname is: "+ employee.surName);
-  System.out.println("\n Employee Username is: "+ employee.userName);
-  System.out.println("\n Employee Password is: "+ employee.password);
-  System.out.println("\n Employee Position is: "+ employee.position);
-  System.out.println("Employee Nationality: "+ employee.nationality);
-  System.out.println("Employee Sex: "+ employee.sex);
-  System.out.println("Employee Age: "+ employee.age);
-  System.out.println("Employee Phonenumbers: "+ employee.phoneNumber);
-  System.out.println("Employee Email: "+ employee.email);
-  System.out.println("Employee Address: "+ employee.address);
+  System.out.println("\n Employee Name is: "+ employee.getFirstName());
+  System.out.println("Employee Surnname is: "+ employee.getSurName());
+  System.out.println("\n Employee Username is: "+ employee.getUserName());
+  System.out.println("\n Employee Password is: "+ employee.getPassword());
+  System.out.println("\n Employee Position is: "+ employee.getPosition());
+  System.out.println("Employee Nationality: "+ employee.getNationality());
+  System.out.println("Employee Sex: "+ employee.getSex());
+  System.out.println("Employee Age: "+ employee.getAge());
+  System.out.println("Employee Phonenumbers: "+ employee.getPhoneNumber());
+  System.out.println("Employee Email: "+ employee.getEmail());
+  System.out.println("Employee Address: "+ employee.getAddress());
 
                 }else{
 System.out.print("Invalid Username or Password. 2/3 attempts left! ");
 
 System.out.println(" \n Enter Username: ");
-  employee.userName = scan.nextLine();
+  employee.setUserName(scan.nextLine());
 
   System.out.println("Enter Password: ");
-  employee.password = scan.nextLine();
+  employee.setPassword(scan.nextLine());
 
-              if(employee.userName.equals(employee.userName) && employee.password.equals(employee.password)){
+              if(employee.getUserName().equals(employee.getUserName()) && employee.getPassword().equals(employee.getPassword())){
              System.out.println(employee.login());
              System.out.println(employee.bookflight());
 
-System.out.println("\n Employee Name is: "+ employee.firstName);
-System.out.println("Employee Surnname is: "+ employee.surName);
-System.out.println("\n Employee Username is: "+ employee.userName);
-System.out.println("\n Employee Password is: "+ employee.password);
-System.out.println("\n Employee Position is: "+ employee.position);
-System.out.println("Employee Nationality: "+ employee.nationality);
-System.out.println("Employee Sex: "+ employee.sex);
-System.out.println("Employee Age: "+ employee.age);
-System.out.println("Employee Phonenumbers: "+ employee.phoneNumber);
-System.out.println("Employee Email: "+ employee.email);
-System.out.println("Employee Address: "+ employee.address);
+System.out.println("\n Employee Name is: "+ employee.getFirstName());
+System.out.println("Employee Surnname is: "+ employee.getSurName());
+System.out.println("\n Employee Username is: "+ employee.getUserName());
+System.out.println("\n Employee Password is: "+ employee.getPassword());
+System.out.println("\n Employee Position is: "+ employee.getPosition());
+System.out.println("Employee Nationality: "+ employee.getNationality());
+System.out.println("Employee Sex: "+ employee.getSex());
+System.out.println("Employee Age: "+ employee.getAge());
+System.out.println("Employee Phonenumbers: "+ employee.getPhoneNumber());
+System.out.println("Employee Email: "+ employee.getEmail());
+System.out.println("Employee Address: "+ employee.getAddress());
 
 
               }else{
@@ -168,26 +173,26 @@ System.out.println("Employee Address: "+ employee.address);
               System.out.println("Invalid Username or Password. 1/3 attempts left! \n");
 
   System.out.println("Enter Username:");
-  employee.userName = scan.nextLine();
+  employee.setUserName(scan.nextLine());
 
   System.out.println("Enter Password \n");
-  employee.password = scan.nextLine();
+  employee.setPassword(scan.nextLine());
 
-              if(employee.userName.equals(employee.userName) && employee.password.equals(employee.password)){
+              if(employee.getUserName().equals(employee.getUserName()) && employee.getPassword().equals(employee.getPassword())){
              System.out.println(employee.login());
              System.out.println(employee.bookflight());
 
-System.out.println("\n Employee Name is: "+ employee.firstName);
-System.out.println("Employee Surnname is: "+ employee.surName);
-System.out.println("\n Employee Username is: "+ employee.userName);
-System.out.println("\n Employee Password is: "+ employee.password);
-System.out.println("\n Employee Position is: "+ employee.position);
-System.out.println("Employee Nationality: "+ employee.nationality);
-System.out.println("Employee Sex: "+ employee.sex);
-System.out.println("Employee Age: "+ employee.age);
-System.out.println("Employee Phonenumbers: "+ employee.phoneNumber);
-System.out.println("Employee Email: "+ employee.email);
-System.out.println("Employee Address: "+ employee.address);
+System.out.println("\n Employee Name is: "+ employee.getFirstName());
+System.out.println("Employee Surnname is: "+ employee.getSurName());
+System.out.println("\n Employee Username is: "+ employee.getUserName());
+System.out.println("\n Employee Password is: "+ employee.getPassword());
+System.out.println("\n Employee Position is: "+ employee.getPosition());
+System.out.println("Employee Nationality: "+ employee.getNationality());
+System.out.println("Employee Sex: "+ employee.getSex());
+System.out.println("Employee Age: "+ employee.getAge());
+System.out.println("Employee Phonenumbers: "+ employee.getPhoneNumber());
+System.out.println("Employee Email: "+ employee.getEmail());
+System.out.println("Employee Address: "+ employee.getAddress());
 
 
 
@@ -208,49 +213,49 @@ System.out.println("Employee Address: "+ employee.address);
 
       System.out.println("\n Enter your Peronal Details.\n");
       System.out.println("\n Enter your First Name:");
-      employee.firstName = scan.nextLine();
+      employee.setFirstName(scan.nextLine());
 
       System.out.println("Enter your Surname:");
-      employee.surName = scan.nextLine();
+      employee.setSurName(scan.nextLine());
 
       System.out.println("\n Enter desired Username: \n");
-      employee.userName = scan.nextLine();
+      employee.setUserName(scan.nextLine());
 
       System.out.println("Enter desired Password: ");
-      employee.password = scan.nextLine();
+      employee.setPassword(scan.nextLine());
 
      System.out.println("\n Enter your Position: ");
-      employee.position = scan.nextLine();
+     employee.setPosition(scan.nextLine());
 
      System.out.println("Enter your Nationality:");
-     employee.nationality = scan.nextLine();
+     employee.setNationality(scan.nextLine());
 
      System.out.println("Enter your Sex:");
-     employee.sex = scan.nextLine();
+     employee.setSex(scan.nextLine());
 
      System.out.println("Enter your age:");
-     employee.age = scan.nextLine();
+     employee.setAge(scan.nextLine());
 
      System.out.println("Enter your phonenumber:");
-     employee.phoneNumber = scan.nextLine();
+     employee.setPhoneNumber(scan.nextLine());
 
      System.out.println("Enter your Email:");
-     employee.email = scan.nextLine();
+     employee.setEmail(scan.nextLine());
 
      System.out.println("Enter your Address:");
-     employee.address = scan.nextLine();
+     employee.setAddress(scan.nextLine());
 
-System.out.println("\n Employee Name is: "+ employee.firstName);
-System.out.println("Employee Surnname is: "+ employee.surName);
-System.out.println("\n Employee Username is: "+ employee.userName);
-System.out.println("\n Employee Password is: "+ employee.password);
-System.out.println("\n Employee Position is: "+ employee.position);
-System.out.println("Employee Nationality: "+ employee.nationality);
-System.out.println("Employee Sex: "+ employee.sex);
-System.out.println("Employee Age: "+ employee.age);
-System.out.println("Employee Phonenumbers: "+ employee.phoneNumber);
-System.out.println("Employee Email: "+ employee.email);
-System.out.println("Employee Address: "+ employee.address);
+System.out.println("\n Employee Name is: "+ employee.getFirstName());
+System.out.println("Employee Surnname is: "+ employee.getSurName());
+System.out.println("\n Employee Username is: "+ employee.getUserName());
+System.out.println("\n Employee Password is: "+ employee.getPassword());
+System.out.println("\n Employee Position is: "+ employee.getPosition());
+System.out.println("Employee Nationality: "+ employee.getNationality());
+System.out.println("Employee Sex: "+ employee.getSex());
+System.out.println("Employee Age: "+ employee.getAge());
+System.out.println("Employee Phonenumbers: "+ employee.getPhoneNumber());
+System.out.println("Employee Email: "+ employee.getEmail());
+System.out.println("Employee Address: "+ employee.getAddress());
 
 }
 //MENU OPTION 3
@@ -282,76 +287,76 @@ System.out.println("\n MANAGE CUSTOMERS \n");
 
 
  System.out.println("Enter Username: ");
- customer.userName = scan.nextLine();
+ customer.setUserName(scan.nextLine());
 
  System.out.println("Enter Password: ");
- customer.password = scan.nextLine();
+ customer.setPassword(scan.nextLine());
 
-              if(customer.userName.equals(customer.userName) && customer.password.equals(customer.password)){
+              if(customer.getUserName().equals(customer.getUserName()) && customer.getPassword().equals(customer.getPassword())){
               System.out.println(customer.login());
               System.out.println(customer.bookflight());
 
-System.out.println("\n Name: "+ customer.firstName);
-System.out.println("Surnname: "+ customer.surName);
-System.out.println("\n User Name: "+ customer.userName);
-System.out.println("\n Password: "+ customer.password);
-System.out.println("Nationality: "+ customer.nationality);
-System.out.println("Sex: "+ customer.sex);
-System.out.println("Age: "+ customer.age);
-System.out.println("Phonenumbers: "+ customer.phoneNumber);
-System.out.println("Email: "+ customer.email);
-System.out.println("Address: "+ customer.address);
-System.out.println("Flight Destination: "+ customer.destination);
-System.out.println("Arrival time is: "+ customer.time);
+System.out.println("\n Name: "+ customer.getFirstName());
+System.out.println("Surnname: "+ customer.getSurName());
+System.out.println("\n User Name: "+ customer.getUserName());
+System.out.println("\n Password: "+ customer.getPassword());
+System.out.println("Nationality: "+ customer.getNationality());
+System.out.println("Sex: "+ customer.getSex());
+System.out.println("Age: "+ customer.getAge());
+System.out.println("Phonenumbers: "+ customer.getPhoneNumber());
+System.out.println("Email: "+ customer.getEmail());
+System.out.println("Address: "+ customer.getAddress());
+System.out.println("Flight Destination: "+ customer.getDestination());
+System.out.println("Arrival time is: "+ customer.getTime());
 
                }else{
                System.out.print("Invalid Username or Password. 2/3 attempts left! ");
 
 System.out.println(" \n Enter Username: ");
-customer.userName = scan.nextLine();
+customer.setUserName(scan.nextLine());
 
 System.out.println("Enter Password: ");
- customer.password = scan.nextLine();
+ customer.setPassword(scan.nextLine());
 
-             if(customer.userName.equals("customer") && customer.password.equals("123#!")){
+             if(employee.getUserName().equals(employee.getUserName()) && employee.getPassword().equals(employee.getPassword())){
             System.out.println(customer.login());
             System.out.println(customer.bookflight());
 
-System.out.println("\n Name: "+ customer.userName);
-System.out.println("Surnname: "+ customer.surName);
-System.out.println("Nationality: "+ customer.nationality);
-System.out.println("Sex: "+ customer.sex);
-System.out.println("Age: "+ customer.age);
-System.out.println("Phonenumbers: "+ customer.phoneNumber);
-System.out.println("Email: "+ customer.email);
-System.out.println("Address: "+ customer.address);
-System.out.println("Flight Destination: "+ customer.destination);
-System.out.println("Arrival time is: "+ customer.time);
+System.out.println("\n Name: "+ customer.getUserName());
+System.out.println("Surnname: "+ customer.getSurName());
+System.out.println("Nationality: "+ customer.getNationality());
+System.out.println("Sex: "+ customer.getSex());
+System.out.println("Age: "+ customer.getAge());
+System.out.println("Phonenumbers: "+ customer.getPhoneNumber());
+System.out.println("Email: "+ customer.getEmail());
+System.out.println("Address: "+ customer.getAddress());
+System.out.println("Flight Destination: "+ customer.getDestination());
+System.out.println("Arrival time is: "+ customer.getTime());
 
              }else{
 
              System.out.println("Invalid Username or Password. 1/3 attempts left! \n");
 
  System.out.println("Enter Username:");
- customer.userName = scan.nextLine();
+ customer.setUserName(scan.nextLine());
 
  System.out.println("Enter Password \n");
- customer.password = scan.nextLine();
+ customer.setPassword(scan.nextLine());
 
-             if(customer.userName.equals("customer") && customer.password.equals("123#!")){
+             if(customer.getUserName().equals("admin") && customer.getPassword().equals("1234")){
              System.out.println(customer.login());
              System.out.println(customer.bookflight());
 
-System.out.println("\n Name: "+ customer.userName);
-System.out.println("Surname: "+ customer.surName);
-System.out.println("Nationality: "+ customer.nationality);
-System.out.println("Sex: "+ customer.sex);
-System.out.println("Age: "+ customer.age);
-System.out.println("Phonenumbers: "+ customer.phoneNumber);
-System.out.println("Email: "+ customer.email);
-System.out.println("Address: "+ customer.address);
-System.out.println("Flight Destination: "+ customer.destination);
-System.out.println("Arrival time is: "+ customer.time);
+System.out.println("\n Name: "+ customer.getUserName());
+System.out.println("Surname: "+ customer.getSurName());
+System.out.println("Nationality: "+ customer.getNationality());
+System.out.println("Sex: "+ customer.getSex());
+System.out.println("Age: "+ customer.getAge());
+System.out.println("Phonenumbers: "+ customer.getPhoneNumber());
+System.out.println("Email: "+ customer.getEmail());
+System.out.println("Address: "+ customer.getAddress());
+System.out.println("Flight Destination: "+ customer.getDestination());
+System.out.println("Arrival time is: "+ customer.getTime());
 
 
              }else{
