@@ -3,6 +3,8 @@ package com.flysaa.application;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.ArrayList;
 import com.flysaa.person.Customer;
 import com.flysaa.person.Person;
 import com.flysaa.person.Employee;
@@ -14,12 +16,11 @@ Scanner scan = new Scanner(System.in);
 Calendar calendar1 = new GregorianCalendar();
 Customer customer = new Customer();
 Customer customer1 = new Customer();
-
 Employee employee = new Employee();
 Employee employee1 = new Employee();
-
 Person person = new Person();
 Person person1 = new Person();
+ArrayList < String > province = new ArrayList <> ();
 
 
 for(int a = 0;a < 15; a++){
@@ -43,40 +44,39 @@ System.out.println("\n SEll TICKETS \n");
 
     System.out.println("Choose destination province:" + " \n 0.Limpopo \n 1.Mpumalanga \n 2.Gauteng \n 3.FreeState \n 4.Kwazulu Natal \n 5.Eastern Cape \n 6.Western Cape \n 7.Northen Cape  ");
     int number0 = scan.nextInt();
-    String province[] = new String[9];
-    province[0] = "Limpopo";
-    province[1] = "Mpumalanga";
-    province[2] = "Gauteng";
-    province[3] = "FreeState";
-    province[4] = "KwaZulu Natal";
-    province[5] = "Eastern Cape";
-    province[6] = "Western Cape";
-    province[7] = "Northan Cape";
-    province[8] = "North West";
+    province.add("Limpopo");
+    province.add("Mpumalanga");
+    province.add("Gauteng");
+    province.add("FreeState");
+    province.add("KwaZulu Natal");
+    province.add("Eastern Cape");
+    province.add("Western Cape");
+    province.add("Northan Cape");
+    province.add("North West");
 
     System.out.println("Choose departure Airport:" + "\n 0.OR Tambo \n 1.Cape Town \n 2.King Shaka \n 3.Bram Fischer");
     int number1 = scan.nextInt();
-    String airport[] =new String[4];
-    airport[0] = "O.R Tambo International Airport";
-    airport[1] = "Cape Town International Airport";
-    airport[2] = "King Shaka INternational AIrport";
-    airport[3] = "Bram Fischer International Airport";
+    ArrayList <String> airport = new ArrayList <> ();
+    airport.add("O.R Tambo International Airport");
+    airport.add("Cape Town International Airport");
+    airport.add("King Shaka INternational AIrport");
+    airport.add("Bram Fischer International Airport");
 
     System.out.println("Choose landing Airport:" + "\n 0.OR Tambo \n 1.Cape Town \n 2.King Shaka 3.Bram Fischer");
     int number2 = scan.nextInt();
-    String landing[] = new String[4];
-    landing[0] = "O.R Tambo International Airport";
-    landing[1] = "Cape Town International Airport";
-    landing[2] = "King Shaka INternational AIrport";
-    landing[3] = "Bram Fischer International Airport";
+    ArrayList <String> landing = new ArrayList <> ();
+    landing.add("O.R Tambo International Airport");
+    landing.add("Cape Town International Airport");
+    landing.add("King Shaka INternational AIrport");
+    landing.add("Bram Fischer International Airport");
 
 
     System.out.println("Choose flight:" + "\n 0.First Class \n 1.Economy \n 2.Private");
     int number3 = scan.nextInt();
-    String flight[] = new String[3];
-    flight[0] = "First Class";
-    flight[1] = "Economy";
-    flight[2] = "Air Private ";
+    ArrayList <String> flight = new ArrayList <> ();
+    flight.add("First Class");
+    flight.add("Economy");
+    flight.add("Air Private ");
 
    System.out.println("Enter date: yyyy-mm-dd-hr-min ");
      int year = scan.nextInt();
@@ -89,21 +89,21 @@ Calendar calendar = new GregorianCalendar(year, month, day, hour, minutes);
 
      System.out.println("Choose departure time:" + "\n 0.06h00 \n 1.12h00 \n 2.18h00 \n 3.00h00");
      int number4 = scan.nextInt();
-      String arrivalTime[] = new String[4];
-      arrivalTime[0] = "06h00";
-      arrivalTime[1] = "12h00";
-      arrivalTime[2] = "18h00";
-      arrivalTime[3] = "00h00";
+      ArrayList <String> arrivalTime = new ArrayList <> ();
+      arrivalTime.add("06h00");
+      arrivalTime.add("12h00");
+      arrivalTime.add("18h00");
+      arrivalTime.add("00h00");
 
 
 System.out.println("\n Username: "+ customer.getUserName());
 System.out.println("Surname: "+ customer.getSurName());
-System.out.println("Destination Province: "+ province[number0]);
-System.out.println("Departure Airport: "+ airport[number1]);
-System.out.println("Landing Airport: "+ landing[number2]);
-System.out.println("Flight: "+ flight[number3]);
+System.out.println("Destination Province: "+ province.get(number0));
+System.out.println("Departure Airport: "+ airport.get(number1));
+System.out.println("Landing Airport: "+ landing.get(number2));
+System.out.println("Flight: "+ flight.get(number3));
 System.out.println("Departure Date"+ calendar.getTime());
-System.out.println("Arrival time: "+ arrivalTime[number4]);
+System.out.println("Arrival time: "+ arrivalTime.get(number4));
 
 
 
